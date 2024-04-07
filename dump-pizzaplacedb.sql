@@ -23,11 +23,12 @@ DROP TABLE IF EXISTS `orderdetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orderdetails` (
-  `id` mediumint unsigned DEFAULT NULL,
+  `id` mediumint unsigned NOT NULL,
   `order_id` mediumint unsigned DEFAULT NULL,
   `pizza_id` varchar(20) DEFAULT NULL,
   `quantity` tinyint unsigned DEFAULT NULL,
-  `price` double unsigned DEFAULT NULL
+  `price` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,9 +49,10 @@ DROP TABLE IF EXISTS `pizzadetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pizzadetails` (
-  `id` varchar(20) DEFAULT NULL,
+  `id` varchar(20) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `category` varchar(20) DEFAULT NULL
+  `category` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -71,8 +73,9 @@ DROP TABLE IF EXISTS `pizzaingredients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pizzaingredients` (
-  `pizza_id` varchar(20) DEFAULT NULL,
-  `ingredients` varchar(100) DEFAULT NULL
+  `id` varchar(20) NOT NULL,
+  `ingredients` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,8 +96,9 @@ DROP TABLE IF EXISTS `pizzaorders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pizzaorders` (
-  `id` mediumint unsigned DEFAULT NULL,
-  `datetime` datetime DEFAULT NULL
+  `id` mediumint unsigned NOT NULL,
+  `datetime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -115,10 +119,11 @@ DROP TABLE IF EXISTS `pizzaprices`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pizzaprices` (
-  `id` varchar(20) DEFAULT NULL,
+  `id` varchar(20) NOT NULL,
   `pizza_id` varchar(20) DEFAULT NULL,
   `size` varchar(3) DEFAULT NULL,
-  `price` double unsigned DEFAULT NULL
+  `price` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -144,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-06 21:28:13
+-- Dump completed on 2024-04-07 12:09:18
